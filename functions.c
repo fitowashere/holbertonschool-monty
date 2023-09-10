@@ -106,3 +106,17 @@ void add(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n += (*stack)->n;
 	pop(stack, line_number); /*Pop the top element after addition*/
 }
+
+/**
+ *free_stack - Implementation of the add function
+ *@stack: A pointer to the top of the stack
+ */
+void free_stack(stack_t **stack)
+{
+	while (*stack != NULL)
+	{
+		stack_t *temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
+	}
+}

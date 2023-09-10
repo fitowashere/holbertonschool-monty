@@ -54,4 +54,7 @@ void pint(stack_t **stack, unsigned int line_number);
 /* Function to get the corresponding function for an opcode */
 void (*get_fun(char *opcode))(stack_t **stack, unsigned int line_number);
 
+/*Function to free the entire stack*/
+void free_stack(stack_t **stack);
+
 #endif

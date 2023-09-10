@@ -37,9 +37,7 @@ int main(int argc, char *argv[])
 		void (*fun)(stack_t **, unsigned int) = get_fun(token);
 
 		if (fun)
-		{
 			fun(&stack, line_number);
-		}
 		else
 		{
 			fprintf(stderr, "Error: Unknown instruction %s\n", token);
@@ -48,5 +46,6 @@ int main(int argc, char *argv[])
 		line_number++;
 	}
 	fclose(file);
+	free_stack(&stack); /*Free the stack to prevent memory leaks*/
 	return (EXIT_SUCCESS);
 }
