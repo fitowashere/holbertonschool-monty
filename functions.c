@@ -17,8 +17,18 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	int value = atoi(token);
+	int value = 0;
 
+	/* Use atoi to convert the argument to an integer */
+	if (isdigit(token[0]) || (token[0] == '-' && isdigit(token[1])))
+	{
+		value = atoi(token);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	/*Create a new stack node*/
 	stack_t *new_node = malloc(sizeof(stack_t));
 
