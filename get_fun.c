@@ -12,7 +12,15 @@ void (*get_fun(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"pop", pop},
 		{"add", add},
-		/*Add more opcode-function mappings here*/
+                {"pint", pint},
+                {"sub", sub},
+                {"mul", mul},
+                {"div", div},
+                {"mod", mod},
+                {"pchar", pchar},
+                {"pstr", pstr},
+                {"rotl", rotl},
+                {"rotr", rotr},
 		{NULL, NULL}};
 
 	int i = 0;
