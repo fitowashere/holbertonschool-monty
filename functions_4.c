@@ -38,10 +38,13 @@ void pchar(stack_t **stack, unsigned int line_number)
 /**
  * pstr - Implementation of the pstr function
  * @stack: A pointer to the top of the stack
+ * @line_number: The current line number
  */
 
-void pstr(stack_t **stack)
+void pstr(stack_t **stack, unsigned int line_number)
 {
+	(void) line_number;
+
 	if (*stack == NULL)
 	{
 		putchar('\n');
@@ -62,10 +65,13 @@ void pstr(stack_t **stack)
 /**
  * rotl - Implementation of the rotl function
  * @stack: A pointer to the top of the stack
+ * @line_number: The current line number
  */
 
-void rotl(stack_t **stack)
+void rotl(stack_t **stack, unsigned int line_number)
 {
+	(void) line_number;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		return;
@@ -94,10 +100,13 @@ void rotl(stack_t **stack)
 /**
  * rotr - Implementation of the rotr function
  * @stack: A pointer to the top of the stack
+ * @line_number: The current line number
  */
 
-void rotr(stack_t **stack)
+void rotr(stack_t **stack, unsigned int line_number)
 {
+	(void) line_number;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		return;
