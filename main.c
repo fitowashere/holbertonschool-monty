@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: %s filename\n", argv[0]);
+		fprintf(stderr, "USAGE: %s monty file\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
 	FILE *file = fopen(argv[1], "r");
@@ -26,8 +26,7 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 1;
 
 	while (fgets(line, sizeof(line), file))
-	{
-		/* Tokenize the line based on spaces and newlines */
+	{   /* Tokenize the line based on spaces and newlines */
 		char *token = strtok(line, " \n");
 
 		if (token == NULL || *token == '#')
@@ -35,14 +34,13 @@ int main(int argc, char *argv[])
 			line_number++;
 			continue; /*Ignore empty lines and comments*/
 		}
-		
 		void (*fun)(stack_t **, unsigned int) = get_fun(token);
 
 		if (fun)
 			fun(&stack, line_number);
 		else
 		{
-			fprintf(stderr, "L%u: unknown instruction %s\n",line_number, token);
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
 			return (EXIT_FAILURE);
 		}
 		line_number++;
