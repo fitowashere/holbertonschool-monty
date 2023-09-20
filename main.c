@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 			fun(&stack, line_number);
 		else
 		{
-			fprintf(stderr, "L%u: Unknown instruction %s\n",line_number, token);
+			fprintf(stderr, "L%u: unknown instruction %s\n",line_number, token);
 			return (EXIT_FAILURE);
 		}
 		line_number++;
