@@ -32,8 +32,10 @@ int main(int argc, char *argv[])
 
 		if (token == NULL || *token == '#')
 		{
+			line_number++;
 			continue; /*Ignore empty lines and comments*/
 		}
+		
 		void (*fun)(stack_t **, unsigned int) = get_fun(token);
 
 		if (fun)
